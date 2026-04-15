@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="Counter Application" icon-name="standard:number_input">
+        <div class="slds-var-m-around_medium">
+            <!-- Counter Display -->
+            <div class="slds-align_absolute-center slds-var-m-bottom_large">
+                <div class="counter-display">
+                    <p class="slds-text-heading_large slds-text-align_center">
+                        {counterValue}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Control Buttons -->
+            <div class="slds-grid slds-grid_align-center slds-gutters">
+                <div class="slds-col">
+                    <lightning-button
+                        variant="brand"
+                        label="Increment"
+                        title="Increment counter"
+                        onclick={handleIncrement}
+                        class="slds-var-m-right_x-small">
+                    </lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button
+                        variant="neutral"
+                        label="Decrement"
+                        title="Decrement counter"
+                        onclick={handleDecrement}
+                        class="slds-var-m-right_x-small">
+                    </lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button
+                        variant="destructive"
+                        label="Reset"
+                        title="Reset counter to 0"
+                        onclick={handleReset}>
+                    </lightning-button>
+                </div>
+            </div>
+
+            <!-- Error Message Display -->
+            <template if:true={errorMessage}>
+                <div class="slds-var-m-top_medium">
+                    <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <h2>{errorMessage}</h2>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
